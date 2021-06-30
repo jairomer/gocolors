@@ -8,7 +8,7 @@ For now it will only highlight success and error messages for GTest.
 
 ## Why?
 
-I am sick of looking at terminals black and white.
+I want color in my life.
 
 The purpose of this utility is to pass the output of another program to it using unix pipes.
 
