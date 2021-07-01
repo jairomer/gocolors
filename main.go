@@ -5,16 +5,18 @@ import (
 	"go-cmake-colors/gtestcoloring"
 	"os"
 	"log"
-	"fmt"
 )
 
 func main() {
-  scanner := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(os.Stdin)
+	writer := bufio.NewWriter(os.Stdout)
 	colorer := gtestcoloring.CreateGTestColorer()
-
-  for scanner.Scan() {
+	for scanner.Scan() {
 		in := scanner.Text()
-		fmt.Println(colorer.Colorize(in))
+		colorer.Colorize(in, writer)
+		if err := writer.Flush(); err != nil {
+			log.Println(err)
+		}
 	}
 	if err := scanner.Err(); err != nil {
 		log.Println(err)
