@@ -10,7 +10,7 @@ import (
 // OK : Regular expression to match for success cases.
 const OK      string = "OK"
 // ERROR : Regular expression to match for error cases.
-const ERROR   string = "ERROR"
+const ERROR   string = "FAILURE"
 // OkSub : Substitution for success cases.
 var OkSub    string = color.Green + OK + color.Reset
 // ErrorSub : Substitution for error cases.

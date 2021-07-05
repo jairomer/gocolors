@@ -11,6 +11,11 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	writer := bufio.NewWriter(os.Stdout)
 	colorer := gtestcoloring.CreateGTestColorer()
+	
+	defer writer.Flush()
+	defer os.Stdout.Close()
+	defer os.Stdin.Close()
+
 	for scanner.Scan() {
 		in := scanner.Text()
 		colorer.Colorize(in, writer)
@@ -22,3 +27,4 @@ func main() {
 		log.Println(err)
 	}
 }
+
